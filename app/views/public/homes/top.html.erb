@@ -1,0 +1,18 @@
+<div class="vid-field">
+  <%= image_tag 'earth.jpeg', class: "earth-img" %>
+</div>
+
+<div class="message-wrapper">
+  <%= image_tag 'site-logo.png', class: "site-title" %>
+  <p class="site-info">お部屋を飾るみたいに自分を詰め込める<br />
+  新感覚プロフィールサイト。<br />
+  素敵なマイルームを作ってSNSにシェアしよう！</p>
+  <div class="btn-field">
+    <%= link_to new_user_registration_path do %>
+      <div class="btn-normal">新規登録</div>
+    <% end %>
+    <%= link_to new_user_session_path do %>
+      <div class="btn-normal">ログイン</div>
+    <% end %>
+  </div>
+</div>
