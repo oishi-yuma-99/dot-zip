@@ -1,0 +1,21 @@
+<div class="posts-field">
+  <%= form_with model: @post do |f| %>
+    <%= f.text_area :body, placeholder: "最近あったことを教えて", class: "post-form" %>
+    <p><%= f.submit 'つぶやく', class: "btn-normal" %></p>
+  <% end %>
+  <% @posts.each do |post| %>
+    <div class="posts-post-field">
+      <span class="post-user"><b><%= link_to post.user.name, user_path(post.user.account_name) %></b></span>
+      <span class="post-info">@<%= post.user.account_name %></span>
+      <span class="post-info">・<%= time_ago_in_words(post.created_at) %>前</span>
+      <p class="post-body"><%= link_to post.body, post_path(post.id) %></p>
+      <span><i class="fa-solid fa-heart"></i> 12</span>
+      <span><%= link_to '<i class="fa-solid fa-comment"></i>'.html_safe, post_path(post.id) %> 12</span>
+      <span>
+        <% if post.user == current_user %>
+          <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, post_path(post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+        <% end %>
+      </span>
+    </div>
+  <% end %>
+</div>

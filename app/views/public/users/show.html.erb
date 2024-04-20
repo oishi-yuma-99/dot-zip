@@ -28,9 +28,13 @@
   <div class="myroom-field">
     <%= image_tag 'myroom.png', class: "myroom-img" %>
     <div class="post-field">
-      <div class="balloon">
-        <p>あああああああああああああああああああああああああああああああああ</p>
-      </div>
+      <%= link_to post_path(@latest_post), class: "balloon" do %>
+        <% if @latest_post_body.length > 35 %>
+          <p><%= @latest_post_body[0..34] %>...</p>
+        <% else %>
+          <p><%= @latest_post_body %></p>
+        <% end %>
+      <% end %>
     </div>
     
     <div class="user-album-field">
