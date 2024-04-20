@@ -20,16 +20,29 @@ class User < ApplicationRecord
   has_one_attached :favorite_item_7
   has_one_attached :favorite_item_8
 
-  before_create :set_account_name7
+  before_create :set_account_name
 
   VALID_ACCOUNT_NAME_REGEX = /\A[a-zA-Z0-9]+\z/  # 半角英数字のみ受け付ける正規表現
   validates :account_name, uniqueness: true,
                            length: { minimum:3, maximum: 50 },
                            format: { with: VALID_ACCOUNT_NAME_REGEX }, 
                            on: :update # updateアクションにのみバリデーションを適用する
-
+  
   def to_param
     account_name
+  end
+  
+  GUEST_MEMBER_EMAIL = "guest@example.com"
+
+  def self.guest
+    find_or_create_by!(email: GUEST_MEMBER_EMAIL) do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "ゲスト"
+    end
+  end
+
+  def guest_user?
+    email == GUEST_MEMBER_EMAIL
   end
   
   def get_image(image)

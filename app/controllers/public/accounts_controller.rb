@@ -1,4 +1,6 @@
 class Public::AccountsController < ApplicationController
+  before_action :ensure_guest_user, only: [:edit]
+  
   def edit
     @user = User.find_by(account_name: params[:account_name])
   end
@@ -23,5 +25,11 @@ class Public::AccountsController < ApplicationController
 
   def user_params
     params.require(:account).permit(:account_name)
+  end
+  
+  def ensure_guest_user
+   if current_user.guest_user?
+     redirect_to user_path(current_user), notice: "ゲストユーザーはアカウント名を編集できません。"
+   end
   end
 end

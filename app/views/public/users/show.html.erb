@@ -4,7 +4,7 @@
       <h1><%= @user.name %>の部屋</h1>
       <div class="room-name">
         <p>@<%= @user.account_name %></p>
-        <% if @user == current_user %>
+        <% if @user == current_user && !current_user.guest_user? %>
           <%= link_to edit_account_path(current_user.account_name) do %>
             <p><i class="fa-solid fa-gear"></i></p>
           <% end %>
@@ -28,10 +28,16 @@
   <div class="myroom-field">
     <%= image_tag 'myroom.png', class: "myroom-img" %>
     <div class="post-field">
-      <%= link_to post_path(@latest_post), class: "balloon" do %>
-        <% if @latest_post_body.length > 35 %>
-          <p><%= @latest_post_body[0..34] %>...</p>
-        <% else %>
+      <% if @latest_post.present? %>
+        <%= link_to post_path(@latest_post.id), class: "balloon" do %>
+          <% if @latest_post_body.length > 35 %>
+            <p><%= @latest_post_body[0..34] %>...</p>
+          <% else %>
+            <p><%= @latest_post_body %></p>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to posts_path, class: "balloon" do %>
           <p><%= @latest_post_body %></p>
         <% end %>
       <% end %>
@@ -62,7 +68,7 @@
     <div class="myroom-floor">
       <div class="user-edit-field">
         <p>最終更新日：2024/5/13</p>
-        <% if @user == current_user %>
+        <% if @user == current_user && !current_user.guest_user? %>
           <%= link_to edit_user_path(current_user.account_name) do %>
             <p><i class="fa-solid fa-pencil"></i></p>
           <% end %>
