@@ -1,0 +1,45 @@
+<%= form_with model: @user, url: user_path(current_user.account_name), method: :patch do |f| %>
+  <div class="my-room">
+    <div class="form-wrapper">
+      <h1 class="form-title">マイルーム編集</h1>
+      <div class="field">
+        <p>ニックネーム</p>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form" %>
+      </div>
+      <div class="field">
+        <p>タグ</p>
+        
+      </div>
+    </div>
+    
+    <div class="myroom-field">
+      <%= image_tag 'myroom.png', class: "myroom-img" %>
+
+      <div class="user-album-field">
+        <div class="user-album"><%= f.file_field :album_jacket_1, accept: "image/*", class: "btn-select" %></div>
+        <div class="user-album"><%= f.file_field :album_jacket_2, accept: "image/*", class: "btn-select" %></div>
+      </div>
+      
+      <div class="user-photo-field">
+        <%= f.file_field :favorite_picture_1, accept: "image/*", class: "user-photo" %>
+        <%= f.file_field :favorite_picture_2, accept: "image/*", class: "user-photo" %>
+        <%= f.file_field :favorite_picture_3, accept: "image/*", class: "user-photo" %>
+      </div>
+      
+      <div class="user-item-field">
+        <%= f.file_field :favorite_item_1, accept: "image/*", class: "user-item" %>
+        <%= f.file_field :favorite_item_2, accept: "image/*", class: "user-item" %>
+        <%= f.file_field :favorite_item_3, accept: "image/*", class: "user-item" %>
+        <%= f.file_field :favorite_item_4, accept: "image/*", class: "user-item" %>
+        <%= f.file_field :favorite_item_5, accept: "image/*", class: "user-item" %>
+        <%= f.file_field :favorite_item_6, accept: "image/*", class: "user-item" %>
+        <%= f.file_field :favorite_item_7, accept: "image/*", class: "user-item" %>
+        <%= f.file_field :favorite_item_8, accept: "image/*", class: "user-item" %>
+      </div>
+      
+      <div class="myroom-floor-edit">
+        <%= f.submit '完了', class: "btn-normal" %>
+      </div>
+    </div>
+  </div>
+<% end %>

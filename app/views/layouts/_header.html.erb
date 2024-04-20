@@ -1,1 +1,33 @@
-header
+<header>
+  <% if user_signed_in? %>
+    <%= image_tag 'site-logo.png', class: "header-logo" %>
+    <nav class="header-nav">
+      <ul class="nav-list">
+        <li>
+            <%= link_to user_path(current_user.account_name) do %>
+              <p class="nav-item first-item"><i class="fa-solid fa-house"></i> マイルーム</p>
+            <% end %>
+          </li>
+        <li>
+          <%= link_to posts_path do %>
+            <p class="nav-item"><i class="fa-solid fa-comments"></i> つぶやき</p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to user_followings_path(current_user.account_name) do %>
+            <p class="nav-item"><i class="fa-solid fa-user-group"></i> フレンド</p>
+          <% end %>
+        </li>
+        <li>
+          <p class="nav-item">
+            <%= link_to  destroy_user_session_path, method: :delete do %>
+              <i class="fa-solid fa-right-from-bracket"></i> ログアウト
+            <% end %>
+          </p>
+        </li>
+      </ul>
+    </nav>
+  <% else %>
+    <%= image_tag 'site-logo.png', class: "header-logo-2" %>
+  <% end %>
+ </header>

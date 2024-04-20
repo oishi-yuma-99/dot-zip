@@ -1,0 +1,71 @@
+<div class="my-room">
+  <div class="user-info-field">
+    <div class="user-info">
+      <h1><%= @user.name %>の部屋</h1>
+      <div class="room-name">
+        <p>@<%= @user.account_name %></p>
+        <% if @user == current_user %>
+          <%= link_to edit_account_path(current_user.account_name) do %>
+            <p><i class="fa-solid fa-gear"></i></p>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="relationships-field">
+        <p class="relationships-count">フォロー中　<b>3</b></p>
+        <p class="relationships-count">フォロワー　<b>12345</b></p>
+      </div>
+      <div>
+        <i class="fa-solid fa-hashtag"></i>あああ
+        <i class="fa-solid fa-hashtag"></i>あああ
+        <i class="fa-solid fa-hashtag"></i>あああ
+      </div>
+    </div>
+    <div class="user-btn-field">
+      <div class="btn-follow"><i class="fa-solid fa-user-plus"></i> フォローする</div>
+    </div>
+  </div>
+
+  <div class="myroom-field">
+    <%= image_tag 'myroom.png', class: "myroom-img" %>
+    <div class="post-field">
+      <div class="balloon">
+        <p>あああああああああああああああああああああああああああああああああ</p>
+      </div>
+    </div>
+    
+    <div class="user-album-field">
+      <div class="user-album"><%= image_tag @user.get_image(@user.album_jacket_1), style: "width: 100%; height: 100%;" %></div>
+      <div class="user-album"><%= image_tag @user.get_image(@user.album_jacket_2), style: "width: 100%; height: 100%;" %></div>
+    </div>
+    
+    <div class="user-photo-field">
+      <div class="user-photo"><%= image_tag @user.get_image(@user.favorite_picture_1), style: "width: 100%; height: 100%;" %></div>
+      <div class="user-photo"><%= image_tag @user.get_image(@user.favorite_picture_2), style: "width: 100%; height: 100%;" %></div>
+      <div class="user-photo"><%= image_tag @user.get_image(@user.favorite_picture_3), style: "width: 100%; height: 100%;" %></div>
+    </div>
+    
+    <div class="user-item-field">
+      <div class="user-item"><%= image_tag @user.get_image(@user.favorite_item_1), style: "width: 100%; height: 100%;" %></div>
+      <div class="user-item"><%= image_tag @user.get_image(@user.favorite_item_2), style: "width: 100%; height: 100%;" %></div>
+      <div class="user-item"><%= image_tag @user.get_image(@user.favorite_item_3), style: "width: 100%; height: 100%;" %></div>
+      <div class="user-item"><%= image_tag @user.get_image(@user.favorite_item_4), style: "width: 100%; height: 100%;" %></div>
+      <div class="user-item"><%= image_tag @user.get_image(@user.favorite_item_5), style: "width: 100%; height: 100%;" %></div>
+      <div class="user-item"><%= image_tag @user.get_image(@user.favorite_item_6), style: "width: 100%; height: 100%;" %></div>
+      <div class="user-item"><%= image_tag @user.get_image(@user.favorite_item_7), style: "width: 100%; height: 100%;" %></div>
+      <div class="user-item"><%= image_tag @user.get_image(@user.favorite_item_8), style: "width: 100%; height: 100%;" %></div>
+    </div>
+    
+    <div class="myroom-floor">
+      <div class="user-edit-field">
+        <p>最終更新日：2024/5/13</p>
+        <% if @user == current_user %>
+          <%= link_to edit_user_path(current_user.account_name) do %>
+            <p><i class="fa-solid fa-pencil"></i></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
