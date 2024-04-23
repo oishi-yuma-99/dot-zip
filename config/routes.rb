@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   }
   
   root 'public/homes#top'
-  get "/search", to: "searches#search"
+  get "/search", to: "public/searches#search"
   
   scope module: :public do
     resources :users, only: [:show, :edit, :update, :destroy], param: :account_name do

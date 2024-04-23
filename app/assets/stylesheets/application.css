@@ -23,7 +23,7 @@
   text-decoration: none;
 }
 
-a:visited {
+a {
   color: black
 }
 
@@ -156,9 +156,9 @@ footer {
   width: 200px;
   height: 50px;
   margin: 10px auto;
-  background-color: white;
+  background-color: black;
   border: solid 3px #000000;
-  color: black;
+  color: white;
   line-height: 50px;
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
@@ -166,6 +166,7 @@ footer {
 
 .btn-normal:hover {
   background: #edff00;
+  color: black;
 }
 
 /* registration、sessionまわり */
@@ -189,7 +190,7 @@ footer {
 
 .form {
   width: 300px;
-  height: 35px;
+  height: 40px;
   border : 3px solid #000000;
   margin: 10px auto;
   font-family: 'Noto Sans JP', sans-serif;
@@ -448,7 +449,58 @@ footer {
   color: black;
 }
 
+.btn-complete {
+  width: 200px;
+  height: 50px;
+  margin: 10px auto;
+  background-color: white;
+  border: solid 3px #000000;
+  color: black;
+  line-height: 50px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+}
+
+.btn-complete:hover {
+  background: #edff00;
+}
+
 /* postsまわり */
+
+.search-field {
+  margin-bottom: 20px;
+}
+
+.search-form {
+  width: 495px;
+  height: 40px;
+  border: 3px solid #000000;
+  padding: 10px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  text-align: left;
+}
+
+.search-form:hover {
+  background: #edff00;
+}
+
+.btn-search {
+  width: 60px;
+  height: 40px;
+  background-color: black;
+  border: solid 3px #000000;
+  color: white;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  margin-left: -10px;
+}
+
+.btn-search:hover {
+  background: #edff00;
+  color: black;
+}
+
 .posts-field {
   width: 600px;
   height: fit-content;
@@ -466,6 +518,10 @@ footer {
   font-family: 'Noto Sans JP', sans-serif;
   padding: 10px;
   font-size: 16px;
+}
+
+.post-form:hover{
+  background: #edff00;
 }
 
 .posts-post-field {
