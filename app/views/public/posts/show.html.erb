@@ -5,11 +5,32 @@
     <span class="post-info">・<%= time_ago_in_words(@post.created_at) %>前</span>
     <p class="post-body"><%= link_to @post.body, post_path(@post.id) %></p>
     <span><i class="fa-solid fa-heart"></i> 12</span>
-    <span><%= link_to '<i class="fa-solid fa-comment"></i>'.html_safe, post_path(@post.id) %> 12</span>
+    <span><%= link_to '<i class="fa-solid fa-comment"></i>'.html_safe, post_path(@post.id) %> <%= @post.comments.count %></span>
     <span>
       <% if @post.user == current_user %>
         <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
       <% end %>
     </span>
   </div>
+
+  <% if user_signed_in? %>
+    <%= form_with model: [@post, @comment] do |f| %>
+      <%= f.text_area :body, placeholder: "コメント...", class: "comment-form" %>
+      <%= f.submit "送信", class: "btn-normal" %>
+    <% end %>
+  <% end %>
+
+  <% @post.comments.each do |comment| %>
+    <div class="posts-post-field">
+      <span class="comment-user"><b><%= link_to comment.user.name, user_path(comment.user) %></b></span>
+      <span class="post-info">@<%= comment.user.account_name %></span>
+      <span class="post-info">・<%= time_ago_in_words(comment.created_at) %>前</span>
+      <span>
+        <% if comment.user == current_user %>
+          <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, post_comment_path(@post, comment), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+        <% end %>
+      </span>
+      <p class="comment-body"><%= comment.body %></p>
+    </div>
+  <% end %>
 </div>

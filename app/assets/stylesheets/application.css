@@ -534,7 +534,7 @@ footer {
   text-align: left;
 }
 
-.post-name:hover {
+.post-user:hover {
   color: #edff00;
 }
 
@@ -576,4 +576,24 @@ footer {
 
 .fa-trash:hover {
   color: #edff00;
+}
+
+.comment-form {
+  width: 550px;
+  height: 100px;
+  resize: none;
+  margin-top: 20px;
+  border: 3px solid #000000;
+  font-family: 'Noto Sans JP', sans-serif;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.comment-form:hover{
+  background: #edff00;
+}
+
+.comment-body {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
