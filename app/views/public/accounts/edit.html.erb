@@ -1,0 +1,10 @@
+<%= form_with(scope: :account, model: @user, url: account_path(params[:account_name]), local: true, class: "mt-4 form-column-width") do |f| %>
+  <div class="form-wrapper">
+    <h1 class="form-title">アカウント名設定</h1>
+    <p>新しいアカウント名</p>
+    <p>(3～50文字、英数字のみ)</p>
+    <%= f.text_field :account_name, class: "form", placeholder: "新しいアカウント名を入力してください" %>
+    <%= render 'layouts/error', obj: @user, key: :account_name %>
+    <%= f.submit "更新", class: "btn-normal"%>
+  </div>
+<% end %>
