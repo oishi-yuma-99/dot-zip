@@ -1,0 +1,19 @@
+<div class="posts-field">
+  検索フィールド
+  <div class="tab-field">
+    <p class="tab-selected">フォロー中</p>
+    <%= link_to user_followers_path(@user.account_name) do %>
+      <p class="tab">フォロワー</p>
+    <% end %>
+  </div>
+  <% if @user.followings.present? %>
+  <% @users.each do |user| %>
+      <div class="posts-post-field">
+        <span class="post-user"><b><%= link_to user.name, user_path(user.account_name) %></b></span>
+        <span class="post-info">@<%= user.account_name %></span>
+      </div>
+    <% end %>
+<% else %>
+    <p>フォロー中はいません。</p>
+<% end %>
+</div>

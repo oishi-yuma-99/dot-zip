@@ -11,8 +11,12 @@
         <% end %>
       </div>
       <div class="relationships-field">
-        <p class="relationships-count">フォロー中　<b>3</b></p>
-        <p class="relationships-count">フォロワー　<b>12345</b></p>
+        <%= link_to user_followings_path(@user.account_name) do %>
+          <p class="relationships-count">フォロー中　<b><%= @user.followings.count %></b></p>
+        <% end %>
+        <%= link_to user_followers_path(@user.account_name) do %>
+          <p class="relationships-count">フォロワー　<b><%= @user.followers.count %></b></p>
+        <% end %>
       </div>
       <div>
         <i class="fa-solid fa-hashtag"></i>あああ
@@ -21,7 +25,9 @@
       </div>
     </div>
     <div class="user-btn-field">
-      <div class="btn-follow"><i class="fa-solid fa-user-plus"></i> フォローする</div>
+      <% if current_user != @user %>
+        <%= render "public/relationships/btn", user: @user %>
+      <% end %>
     </div>
   </div>
 
