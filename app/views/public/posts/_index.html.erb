@@ -5,7 +5,7 @@
         <span class="post-info">@<%= post.user.account_name %></span>
         <span class="post-info">・<%= time_ago_in_words(post.created_at) %>前</span>
         <p class="post-body"><%= link_to post.body, post_path(post.id) %></p>
-        <span><i class="fa-solid fa-heart"></i> 12</span>
+        <span><%= render "public/favorites/btn", post: post %></span>
         <span><%= link_to '<i class="fa-solid fa-comment"></i>'.html_safe, post_path(post.id) %> <%= post.comments.count %></span>
         <span>
           <% if post.user == current_user %>
