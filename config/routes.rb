@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   
   # 管理者用
-  devise_for :admins, skip: [:registrations, :passwords], controllers: {
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
   namespace :admin do
     root 'homes#top'
     resources :users, only: [:index, :show, :edit, :update, :destroy]
-    resources :posts, only: [:index, :show, :destroy]
+    resources :posts, only: [:show, :destroy]
     resources :tags, only: [:index, :destroy]
   end
 

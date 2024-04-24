@@ -1,0 +1,21 @@
+<div class="posts-field">
+  <% if @posts.present? %>
+    <% @posts.each do |post| %>
+        <div class="posts-post-field">
+          <span class="post-user"><b><%= link_to post.user.name, user_path(post.user.account_name) %></b></span>
+          <span class="post-info">@<%= post.user.account_name %></span>
+          <span class="post-info">・<%= time_ago_in_words(post.created_at) %>前</span>
+          <p class="post-body"><%= link_to post.body, post_path(post.id) %></p>
+          <span><i class="fa-solid fa-heart"></i> 12</span>
+          <span><%= link_to '<i class="fa-solid fa-comment"></i>'.html_safe, post_path(post.id) %> <%= post.comments.count %></span>
+          <span>
+            <% if post.user == current_user || admin_signed_in? %>
+              <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, post_path(post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            <% end %>
+          </span>
+        </div>
+    <% end %>
+  <% else %>
+      <p>つぶやきはありません。</p>
+  <% end %>
+</div>
