@@ -1,0 +1,6 @@
+<div class="posts-field">
+  <% if @model == 'post' %>
+      <h2 class="form-title">「<%= @content %>」を含むつぶやき</h2>
+    <%= render 'public/posts/index', posts: @records %>
+  <% end %>
+</div>
