@@ -1,0 +1,46 @@
+<% if flash[:notice].present? && flash[:notice] == "会員情報の編集に成功しました" %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<div class="form-wrapper">
+  <h1 class="form-title">会員情報編集</h1>
+  <%= form_with model: @user, url: admin_user_path(@user), method: :patch do |f| %>
+    <table>
+      
+      <tr>
+        <th>アカウント名</th>
+        <td><%= f.text_field :account_name, autofocus: true, autocomplete: "username" %></td>
+      </tr>
+
+      <tr>
+        <th>ニックネーム</th>
+        <td>
+          <%= f.text_field :name, autocomplete: "name" %>
+        </td>
+      </tr>
+
+      <tr>
+        <th>メールアドレス</th>
+        <td>
+          <%= f.email_field :email, autocomplete: "email" %>
+        </td>
+      </tr>
+
+      <tr>
+        <div class="field">
+          <th>会員ステータス</th>
+          <td>
+            <%= f.radio_button :is_active, true, class: "form-check-input"  %>
+            <%= f.label :"有効", class: "form-check-label mr-3" %>
+
+            <%= f.radio_button :is_active, false, class: "form-check-input" %>
+            <%= f.label :"退会", class: "form-check-label" %>
+          </td>
+        </div>
+      </tr>
+    </table>
+    <%= f.submit "変更を保存", class: "btn-normal" %>
+  <% end %>
+</div>
