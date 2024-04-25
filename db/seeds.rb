@@ -11,8 +11,8 @@
 #   password: 'aaaaaa'
 # )
 
-User.create(name: 'Aoi', email: 'b@b.com', encrypted_password: 'aaaaaa', is_active: true)
-User.create(name: 'ひまり', email: 'c@c.com', encrypted_password: 'aaaaaa', is_active: true)
-User.create(name: '律', email: 'd@d.com', encrypted_password: 'aaaaaa', is_active: true)
-User.create(name: 'mei', email: 'e@e.com', encrypted_password: 'aaaaaa', is_active: true)
-User.create(name: 'なぎ', email: 'f@f.com', encrypted_password: 'aaaaaa', is_active: true)
+User.create(name: 'Aoi', account_name: 'aoi1234', email: 'b@b.com', password: 'aaaaaa', is_active: true)
+User.create(name: 'ひまり', account_name: 'himari1234', email: 'c@c.com', password: 'aaaaaa', is_active: true)
+User.create(name: '律', account_name: 'ritsu1234', email: 'd@d.com', password: 'aaaaaa', is_active: true)
+User.create(name: 'mei', account_name: 'mei1234', email: 'e@e.com', password: 'aaaaaa', is_active: true)
+User.create(name: 'なぎ', account_name: 'nagi1234', email: 'f@f.com', password: 'aaaaaa', is_active: true)

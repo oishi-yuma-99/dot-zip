@@ -638,3 +638,13 @@ footer {
 .tab:hover {
   background-color: #edff00;
 }
+
+/* adminまわり */
+table {
+  margin: 20px auto;
+  text-align: center;
+}
+
+th,td {
+    padding: 10px;      /* 余白指定 */
+}

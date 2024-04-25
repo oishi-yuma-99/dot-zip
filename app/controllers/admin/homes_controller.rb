@@ -1,6 +1,6 @@
 class Admin::HomesController < ApplicationController
   
-  def index
+  def top
     @posts = Post.all
   end
 end
