@@ -18,10 +18,12 @@
           <p class="relationships-count">フォロワー　<b><%= @user.followers.count %></b></p>
         <% end %>
       </div>
-      <div>
-        <i class="fa-solid fa-hashtag"></i>あああ
-        <i class="fa-solid fa-hashtag"></i>あああ
-        <i class="fa-solid fa-hashtag"></i>あああ
+      <div class="tag-field">
+        <% @user.tags.each do |tag| %>
+          <span class="tags">
+            <i class="fa-solid fa-hashtag"></i> <%= link_to tag.name, search_path(model: 'user', content_type: 'tag', content: tag.name) %>
+          </span>
+        <% end %>
       </div>
     </div>
     <div class="user-btn-field">

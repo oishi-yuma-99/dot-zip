@@ -8,7 +8,8 @@
       </div>
       <div class="field">
         <p>タグ</p>
-        
+        <p>(複数つけるには','で区切ってください)</p>
+        <%= f.text_field :tag_ids, value: @user.tags.map(&:name).join(','), autocomplete: "tag_ids", class: "form" %>
       </div>
     </div>
     

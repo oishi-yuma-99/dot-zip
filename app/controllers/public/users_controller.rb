@@ -13,18 +13,21 @@ class Public::UsersController < ApplicationController
 
   def update
     user = User.find_by(account_name: params[:account_name])
-    user.update(user_params)
-    redirect_to user_path(current_user.account_name)
+    tag_list = params[:user][:tag_ids].split(',')
+    if user.update(user_params)
+      user.save_tags(tag_list)
+      redirect_to user_path(current_user.account_name)
+    end
   end
-
+  
   private
   def user_params
     params.require(:user).permit(:name, :profile_image, :album_jacket_1, :album_jacket_2, :favorite_picture_1, :favorite_picture_2, :favorite_picture_3, :favorite_item_1, :favorite_item_2, :favorite_item_3, :favorite_item_4, :favorite_item_5, :favorite_item_6, :favorite_item_7, :favorite_item_8)
   end
   
   def ensure_guest_user
-   if current_user.guest_user?
-     redirect_to user_path(current_user), notice: "ゲストユーザーはプロフィール編集できません。"
-   end
+    if current_user.guest_user?
+      redirect_to user_path(current_user), notice: "ゲストユーザーはプロフィール編集できません。"
+    end
   end
 end
