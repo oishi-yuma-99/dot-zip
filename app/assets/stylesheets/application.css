@@ -247,6 +247,22 @@ footer {
   color: #edff00;
 }
 
+.tag-field {
+  margin-left: 15px;
+}
+
+.tag-field-ff {
+  margin-top: 5px;
+}
+
+.tags {
+  margin-right: 5px;
+}
+
+.tags:hover {
+  color: #edff00;
+}
+
 .user-btn-field {
   width: fit-content;
   height: fit-content;
@@ -269,6 +285,19 @@ footer {
 .btn-follow:hover {
   background-color: #edff00;
   color: black;
+}
+
+.btn-following {
+  width: 150px;
+  height: 50px;
+  margin-top: 80px;
+  background-color: #edff00;
+  border: solid 3px #000000;
+  color: black;
+  line-height: 50px;
+  text-align: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
 }
 
 .myroom-field {
@@ -471,9 +500,9 @@ footer {
   margin-bottom: 20px;
 }
 
-.search-form {
-  width: 495px;
-  height: 40px;
+.search-content-type {
+  width: 25%;
+  height: 50px;
   border: 3px solid #000000;
   padding: 10px;
   font-family: 'Noto Sans JP', sans-serif;
@@ -481,19 +510,40 @@ footer {
   text-align: left;
 }
 
+.search-form {
+  width: 85%;
+  height: 50px;
+  border: 3px solid #000000;
+  padding: 10px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  text-align: left;
+}
+
+.search-form-b {
+  width: 60%;
+  height: 50px;
+  border: 3px solid #000000;
+  padding: 10px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  text-align: left;
+  margin-left: -1%;
+}
+
 .search-form:hover {
   background: #edff00;
 }
 
 .btn-search {
-  width: 60px;
-  height: 40px;
+  width: 15%;
+  height: 50px;
   background-color: black;
   border: solid 3px #000000;
   color: white;
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
-  margin-left: -10px;
+  margin-left: -1%;
 }
 
 .btn-search:hover {
@@ -502,7 +552,7 @@ footer {
 }
 
 .posts-field {
-  width: 600px;
+  width: 40%;
   height: fit-content;
   margin: auto;
   padding: 20px;
@@ -511,7 +561,7 @@ footer {
 }
 
 .post-form {
-  width: 550px;
+  width: 100%;
   height: 100px;
   resize: none;
   border: 3px solid #000000;
@@ -525,7 +575,6 @@ footer {
 }
 
 .posts-post-field {
-  width: 550px;
   height: fit-content;
   margin: auto;
   margin-top: 10px;
@@ -579,7 +628,7 @@ footer {
 }
 
 .comment-form {
-  width: 550px;
+  width: 100%;
   height: 100px;
   resize: none;
   margin-top: 20px;
@@ -598,6 +647,32 @@ footer {
   margin-bottom: 10px;
 }
 
+/* フォローまわり*/
+
+.tab-field {
+  display: flex;
+}
+
+.tab-selected {
+  width: 150%;
+  height: 50px;
+  border: 3px solid #000000;
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+.tab {
+  width: 150%;
+  height: 50px;
+  border: 3px solid #000000;
+  padding: 10px;
+}
+
+.tab:hover {
+  background-color: #edff00;
+}
+
 /* adminまわり */
 table {
   margin: 20px auto;
@@ -608,3 +683,12 @@ th,td {
     padding: 10px;      /* 余白指定 */
 }
 
+/* ページネーション*/
+.page-field {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.pagination {
+  margin: 15px auto;
+}

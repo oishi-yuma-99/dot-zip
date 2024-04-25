@@ -16,4 +16,5 @@
     <p><%= f.submit 'つぶやく', class: "btn-normal" %></p>
   <% end %>
   <%= render 'public/posts/index', posts: @posts %>
+  <%= paginate @posts %>
 </div>

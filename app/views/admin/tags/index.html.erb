@@ -1,1 +1,17 @@
-タグ一覧
+<table>
+	<thead>
+		<th>タグ名</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<% @tags.each do |tag| %>
+		  <tr>
+        <td><%= tag.name %></td>
+        <td><%= link_to '削除', admin_tag_path(tag.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+      </tr>
+    <% end %>
+	</tbody>
+</table>
+<div class="page-field">
+	<%= paginate @tags %>
+</div>

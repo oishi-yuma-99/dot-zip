@@ -1,0 +1,37 @@
+<div class="posts-field">
+  <div class="search-field">
+    <% if user_signed_in? %>
+      <%= form_with url: search_path, method: :get, local: true do |f| %>
+        <%= f.select :content_type, options_for_select([['名前', 'name'], ['アカウント名', 'account_name'], ['タグ', 'tag']], params[:content_type]), {}, {class: "search-content-type"} %>
+        <%= f.text_field :content, placeholder: "ユーザーを探す...", class: "search-form-b" %>
+        <%= f.hidden_field :model, value: "user" %>
+        <%= f.hidden_field :method, value: "partial" %>
+        <%= button_tag(type: "submit", class:"btn-search") do %>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="tab-field">
+    <%= link_to "フォロー中", user_followings_path(@user.account_name), class: "tab" %>
+    <p class="tab-selected">フォロワー</p>
+  </div>
+  <% if @user.followers.present? %>
+    <% @users.each do |user| %>
+        <div class="posts-post-field">
+          <span class="post-user"><b><%= link_to user.name, user_path(user.account_name) %></b></span>
+          <span class="post-info">@<%= user.account_name %></span>
+          <p class="tag-field-ff">
+            <% @user.tags.each do |tag| %>
+              <span class="tags">
+                <i class="fa-solid fa-hashtag"></i> <%= link_to tag.name, search_path(model: 'user', content_type: 'tag', content: tag.name) %>
+              </span>
+            <% end %>
+          </p>
+        </div>
+      <% end %>
+      <%= paginate @users %>
+  <% else %>
+      <p>フォロワーはいません。</p>
+  <% end %>
+</div>
