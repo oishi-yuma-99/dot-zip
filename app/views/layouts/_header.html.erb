@@ -52,6 +52,7 @@
         <% end %>
       </ul>
     </nav>
+    <% if user_signed_in? %>
     <div class="sp-menu">
       <input type="checkbox" id="sp-menu__check">
       <label for="sp-menu__check" class="sp-menu__box">
@@ -86,6 +87,7 @@
         </ul>
       </div>
     </div>
+    <% end %>
   <% else %>
     <%= image_tag 'site-logo.png', class: "header-logo-2" %>
   <% end %>
