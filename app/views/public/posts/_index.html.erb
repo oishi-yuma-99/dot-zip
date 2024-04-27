@@ -1,5 +1,5 @@
 <% if posts.present? %>
-  <% posts.reverse.each do |post| %>
+  <% posts.each do |post| %>
       <div class="posts-post-field">
         <span class="post-user"><b><%= link_to post.user.name, user_path(post.user.account_name) %></b></span>
         <span class="post-info">@<%= post.user.account_name %></span>
@@ -14,7 +14,8 @@
         </span>
       </div>
     <% end %>
-    <%= paginate @posts %>
 <% else %>
+  <div class="posts-post-field">
     <p>つぶやきはありません。</p>
+  </div>
 <% end %>

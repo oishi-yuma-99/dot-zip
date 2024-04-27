@@ -16,22 +16,6 @@
     <%= link_to "フォロー中", user_followings_path(@user.account_name), class: "tab" %>
     <p class="tab-selected">フォロワー</p>
   </div>
-  <% if @user.followers.present? %>
-    <% @users.each do |user| %>
-        <div class="posts-post-field">
-          <span class="post-user"><b><%= link_to user.name, user_path(user.account_name) %></b></span>
-          <span class="post-info">@<%= user.account_name %></span>
-          <p class="tag-field-ff">
-            <% @user.tags.each do |tag| %>
-              <span class="tags">
-                <i class="fa-solid fa-hashtag"></i> <%= link_to tag.name, search_path(model: 'user', content_type: 'tag', content: tag.name) %>
-              </span>
-            <% end %>
-          </p>
-        </div>
-      <% end %>
-      <%= paginate @users %>
-  <% else %>
-      <p>フォロワーはいません。</p>
-  <% end %>
+  <%= render 'public/users/index', users: @users %>
+  <%= paginate @users %>
 </div>

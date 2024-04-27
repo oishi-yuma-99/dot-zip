@@ -32,7 +32,23 @@
       <% end %>
     </div>
   </div>
-
+  
+  <div class="post-field-2">
+    <% if @latest_post.present? %>
+      <%= link_to post_path(@latest_post.id), class: "balloon" do %>
+        <% if @latest_post_body.length > 35 %>
+          <p><%= @latest_post_body[0..34] %>...</p>
+        <% else %>
+          <p><%= @latest_post_body %></p>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to posts_path, class: "balloon" do %>
+        <p><%= @latest_post_body %></p>
+      <% end %>
+    <% end %>
+  </div>
+  
   <div class="myroom-field">
     <%= image_tag 'myroom.png', class: "myroom-img" %>
     <div class="post-field">

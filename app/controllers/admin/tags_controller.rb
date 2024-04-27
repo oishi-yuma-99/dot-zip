@@ -1,6 +1,6 @@
 class Admin::TagsController < ApplicationController
   def index
-    @tags = Tag.all.page(params[:page]).per(10)
+    @tags = Tag.order(created_at: :desc).page(params[:page]).per(10)
   end
   
   def destroy
