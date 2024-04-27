@@ -243,10 +243,6 @@ footer {
   padding-left: 30px;
 }
 
-.relationships-count {
-
-}
-
 .relationships-count:hover {
   color: #edff00;
 }
@@ -733,6 +729,13 @@ th,td {
     margin: auto 0;
     margin-left: 5%;
   }
+  
+  .header-logo-2 {
+    width: 100px;
+    height: auto;
+    margin: auto 0;
+    margin-left: 5%;
+  }
 
   .sp-menu__box {
     position: absolute;
@@ -799,10 +802,27 @@ th,td {
     margin-bottom: 20px;
     font-size: 20px;
   }
+  
+  /* トップページ */
+  .message-wrapper {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin-top: 100px;
+  }
 
+  .vid-field {
+    display: none;
+  }  
+    
   /* その他調整 */
+  .form-wrapper {
+    margin-top: 50px;
+  }
+  
   .my-room {
-    margin-top: 80px;
+    margin-top: 30px;
   }
 
   .post-field {
