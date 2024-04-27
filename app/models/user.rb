@@ -103,6 +103,11 @@ class User < ApplicationRecord
     end
   end
   
+  # 退会済みは再ログインできない
+  def active_for_authentication?
+    super && (is_active == true)
+  end
+  
   private
   def set_account_name # ランダムなアカウント名を返す
     while self.account_name.blank? || User.find_by(account_name: self.account_name).present? do

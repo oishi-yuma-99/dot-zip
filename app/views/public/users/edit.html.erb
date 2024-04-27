@@ -11,6 +11,7 @@
         <p>(複数つけるには','で区切ってください)</p>
         <%= f.text_field :tag_ids, value: @user.tags.map(&:name).join(','), autocomplete: "tag_ids", class: "form" %>
       </div>
+      <%= link_to '退会する', users_check_path %>
     </div>
     
     <div class="myroom-field">

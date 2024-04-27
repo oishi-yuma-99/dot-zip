@@ -52,6 +52,40 @@
         <% end %>
       </ul>
     </nav>
+    <div class="sp-menu">
+      <input type="checkbox" id="sp-menu__check">
+      <label for="sp-menu__check" class="sp-menu__box">
+        <span></span>
+      </label>
+      <div class="sp-menu__content">
+        <ul class="sp-menu__list">
+          <li class="sp-menu__item">
+              <%= link_to user_path(current_user.account_name) do %>
+                <i class="fa-solid fa-house"></i> マイルーム
+              <% end %>
+            </a>
+          </li>
+          <li class="sp-menu__item">
+              <%= link_to posts_path do %>
+                <i class="fa-solid fa-comments"></i> つぶやき
+              <% end %>
+            </a>
+          </li>
+          <li class="sp-menu__item">
+              <%= link_to user_followings_path(current_user.account_name) do %>
+                <i class="fa-solid fa-user-group"></i> フレンド
+              <% end %>
+            </a>
+          </li>
+          <li class="sp-menu__item">
+              <%= link_to  destroy_user_session_path, method: :delete do %>
+                <i class="fa-solid fa-right-from-bracket"></i> ログアウト
+              <% end %>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   <% else %>
     <%= image_tag 'site-logo.png', class: "header-logo-2" %>
   <% end %>

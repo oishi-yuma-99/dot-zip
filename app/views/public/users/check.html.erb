@@ -1,0 +1,13 @@
+<div class="form-wrapper">
+  <h1 class="form-title">本当に退会しますか？</h1>
+    <p>
+      退会すると、これまでに作成したプロフィールや<br>
+      つぶやきが閲覧できなくなります。
+    </p>
+    <div class="btn-field"
+      <%= link_to user_path(current_user.account_name) do %>
+        <div class="btn-normal">退会しない</div>
+      <% end %>
+      <%= link_to "退会する", users_withdraw_path, method: :patch, data: { confirm: "本当に退会しますか？" }  %>
+    </div>
+  </div>
