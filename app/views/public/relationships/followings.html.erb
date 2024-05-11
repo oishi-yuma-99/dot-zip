@@ -12,6 +12,7 @@
       <% end %>
     <% end %>
   </div>
+  <h1 class="form-title"><%= @user.name %>のともだち</h1>
   <div class="tab-field">
     <p class="tab-selected">フォロー中</p>
     <%= link_to "フォロワー", user_followers_path(@user.account_name), class: "tab" %>
